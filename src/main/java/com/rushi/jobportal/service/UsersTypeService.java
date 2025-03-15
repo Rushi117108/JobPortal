@@ -1,8 +1,7 @@
 package com.rushi.jobportal.service;
 
-import com.rushi.jobportal.model.UserType;
+import com.rushi.jobportal.model.UsersType;
 import com.rushi.jobportal.repository.UsersTypeRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class UsersTypeService {
         this.usersTypeRepo = usersTypeRepo;
     }
 
-    public List<UserType> getAll(){
+    public List<UsersType> getAll(){
         return usersTypeRepo.findAll();
     }
 
