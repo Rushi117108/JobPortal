@@ -25,15 +25,15 @@ public class UserService {
     private RecruiterProfileRepo recruiterProfileRepo;
 
     public void addNew(Users users){
-
+//        System.out.println("Users "+users);
         users.setActive(true);
         users.setRegistrationDate(new Date(System.currentTimeMillis()));
-        usersRepository.save(users);
-        int userTypeId = users.getUserType().getUserTypeId();
+        Users savedUser = usersRepository.save(users);
+        int userTypeId = users.getUserTypeId().getUserTypeId();
         if(userTypeId ==1){
-            recruiterProfileRepo.save(new RecruiterProfile(users));
+            recruiterProfileRepo.save(new RecruiterProfile(savedUser));
         }else{
-            jobSeekerProfileRepo.save(new JobSeekerProfile(users));
+            jobSeekerProfileRepo.save(new JobSeekerProfile(savedUser));
         }
     }
 

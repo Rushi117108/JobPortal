@@ -46,32 +46,31 @@
                     <div class="myForm">
                         <form
                                 th:action="@{/register/new}"
-                                object="${user}"
+                                th:object="${user}"
                                 method="post"
                         >
                             <div class="box-body bozero mx2p">
+
                                 <div class ="row">
-                                    <div class ="col-md-12">
-                                        <div class ="form-group">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                             <div th:if="${error}" class="alert alert-danger" role="alert">
-                                                <p th:text ="${error}"></p>
+                                                <p th:text="${error}"></p>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <input
-                                                    class="form-control"
-                                                    name="email"
                                                     placeholder="Email"
-                                                    required
-                                                    style="width: 100%"
-                                                    field="*{email}"
+                                                    name="email"
+                                                    th:field="*{email}"
                                                     type="email"
+                                                    style="width: 100%"
+                                                    class="form-control"
+                                                    required
                                             />
                                         </div>
                                     </div>
@@ -83,7 +82,7 @@
                                                     min="8"
                                                     placeholder="Password"
                                                     name="password"
-                                                    field="*{password}"
+                                                    th:field="*{password}"
                                                     type="password"
                                                     class="form-control pwd"
                                                     required
@@ -96,7 +95,7 @@
                                         <select
                                                 required
                                                 class="form-control"
-                                                field="*{userTypeId}"
+                                                th:field="*{userTypeId}"
                                         >
                                             <th:block th:each="userType :${getAllTypes}">
                                                 <option
@@ -124,7 +123,7 @@
 </section>
 </body>
 
-<script type="text/javascript" src="@{/webjars/jquery/jquery.min.js}"></script>
-<script type="text/javascript" src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
 </html>

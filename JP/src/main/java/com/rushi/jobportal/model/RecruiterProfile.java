@@ -14,7 +14,6 @@ public class RecruiterProfile {
     @JoinColumn(name = "user_account_id")
     @MapsId
     private Users userId;
-					
 
     private String firstName;
     private String lastName;
