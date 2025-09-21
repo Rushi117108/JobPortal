@@ -49,7 +49,7 @@ public class UsersController {
             return "register";
         }
         userService.addNew(users);
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/";
     }
 
     @GetMapping("/login")

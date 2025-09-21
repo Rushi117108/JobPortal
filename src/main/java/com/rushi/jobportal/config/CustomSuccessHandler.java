@@ -19,7 +19,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         System.out.println("The username "+username+" is logged in");
 
         Boolean hasRecruiterRole = authentication.getAuthorities().stream().anyMatch(role ->
-                role.getAuthority().equals("Recuiter"));
+                role.getAuthority().equals("Recruiter"));
         Boolean hasJobSeekerRole = authentication.getAuthorities().stream().anyMatch(role->
                 role.getAuthority().equals("Job Seeker"));
         if(hasJobSeekerRole || hasRecruiterRole){
