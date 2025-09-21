@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class Users {
 
     @Id
@@ -27,12 +27,12 @@ public class Users {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userTypeId", referencedColumnName = "userTypeId")
-    private UserType userTypeId;
+    private UsersType userTypeId;
 
     public Users() {
     }
 
-    public Users(int userId, String email, String password, boolean isActive, Date registrationDate, UserType userTypeId) {
+    public Users(int userId, String email, String password, boolean isActive, Date registrationDate, UsersType userTypeId) {
         this.userId = userId;
         this.email = email;
         this.password = password;
@@ -47,6 +47,14 @@ public class Users {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -65,14 +73,6 @@ public class Users {
         isActive = active;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Date getRegistrationDate() {
         return registrationDate;
     }
@@ -81,11 +81,11 @@ public class Users {
         this.registrationDate = registrationDate;
     }
 
-    public UserType getUserType() {
+    public UsersType getUserTypeId() {
         return userTypeId;
     }
 
-    public void setUserType(UserType userTypeId) {
+    public void setUserTypeId(UsersType userTypeId) {
         this.userTypeId = userTypeId;
     }
 
@@ -96,7 +96,7 @@ public class Users {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", isActive=" + isActive +
-                ", registratiionDate=" + registrationDate +
+                ", registrationDate=" + registrationDate +
                 ", userTypeId=" + userTypeId +
                 '}';
     }

@@ -1,15 +1,13 @@
 package com.rushi.jobportal.model;
-
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
-@Table(name="users_type")
-public class UserType {
+@Table(name = "users_type")
+public class UsersType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userTypeId;
 
     private String userTypeName;
@@ -17,21 +15,13 @@ public class UserType {
     @OneToMany(targetEntity = Users.class, mappedBy = "userTypeId", cascade = CascadeType.ALL)
     private List<Users> users;
 
-    public UserType() {
+    public UsersType() {
     }
 
-    public UserType(int userTypeId, String userTypeName, List<Users> users) {
+    public UsersType(int userTypeId, String userTypeName, List<Users> users) {
         this.userTypeId = userTypeId;
         this.userTypeName = userTypeName;
         this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "UserType{" +
-                "userTypeId=" + userTypeId +
-                ", userTypeName='" + userTypeName + '\'' +
-                '}';
     }
 
     public int getUserTypeId() {
@@ -57,4 +47,13 @@ public class UserType {
     public void setUsers(List<Users> users) {
         this.users = users;
     }
+
+    @Override
+    public String toString() {
+        return "UsersType{" +
+                "userTypeId=" + userTypeId +
+                ", userTypeName='" + userTypeName + '\'' +
+                '}';
+    }
+
 }
